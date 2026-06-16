@@ -30,3 +30,4 @@ jobs:
         image: uvicorn/uvicorn-echo:latest
         update-db: true
         fail-build: false
+        output-format: table
