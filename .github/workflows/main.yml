@@ -23,7 +23,3 @@ jobs:
       uses: anchore/scan-action@v3
       with:
         image: uvicorn/uvicorn:latest
-        fail-build: false
-        severity-cutoff: medium
-        output-format: table
-        only-fixed: true
