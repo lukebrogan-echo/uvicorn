@@ -1,0 +1,26 @@
+name: Build Docker image and scan with Grype
+
+on:
+  workflow_dispatch
+    
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out the repo
+      uses: actions/checkout@v4
+
+    - name: Build image
+      uses: docker/build-push-action@v5
+      with:
+       context:
+       file: dockerfile-echo
+       tags: uvicorn/uvicorn-echo:latest
+
+    - name: Scan the Docker image 
+      uses: anchore/scan-action@v3
+      with:
+        image: uvicorn/uvicorn-echo:latest
