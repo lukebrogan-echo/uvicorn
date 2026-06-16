@@ -27,4 +27,9 @@ jobs:
       run: curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh | sh -s -- -b /usr/local/bin
 
     - name: Scan the Docker image
-      run: grype uvicorn/uvicorn-echo:latest -o table
+      run: grype uvicorn/uvicorn-echo:latest
+
+    - name: Scan with Trivy
+      uses: aquasecurity/trivy-action@master
+      with:
+        image-ref: uvicorn/uvicorn-echo:latest
