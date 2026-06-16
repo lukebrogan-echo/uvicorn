@@ -17,6 +17,7 @@ jobs:
       uses: docker/build-push-action@v5
       with:
        context:
+       file: dockerfile
        tags: uvicorn/uvicorn:latest
 
     - name: Scan the Docker image 
