@@ -26,3 +26,4 @@ jobs:
         image: uvicorn/uvicorn:latest
         update-db: true
         fail-build: false
+        output-format: table
