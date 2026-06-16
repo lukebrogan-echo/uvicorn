@@ -13,7 +13,8 @@ jobs:
     - name: Check out the repo
       uses: actions/checkout@v4
 
-    - uses: SeptBlast/docker-login@v1.0.1
+    - name: Login to Echo 
+      uses: SeptBlast/docker-login@v1.0.1, action/core
       with:
         login-server: 'reg.echohq.com' # default: index.docker.io
         username: ${{ secrets.DOCKERHUB_USERNAME }}
