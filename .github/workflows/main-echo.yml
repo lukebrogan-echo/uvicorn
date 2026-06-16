@@ -26,7 +26,7 @@ jobs:
     - name: Scan with Grype
       run: |
          curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh | sh -s -- -b /usr/local/bin
-         grype uvicorn/uvicorn-echo:latest
+         grype uvicorn/uvicorn-echo:latest -o table
 
     - name: Scan with Trivy
       uses: aquasecurity/trivy-action@master
