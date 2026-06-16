@@ -1,4 +1,4 @@
-name: Build Docker image and scan with Grype
+name: Build Docker image and scan with Grype/Trivy
 on:
   workflow_dispatch
     
