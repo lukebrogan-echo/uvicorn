@@ -23,11 +23,16 @@ jobs:
         file: dockerfile-echo
         tags: uvicorn/uvicorn-echo:latest
 
+    - name: Install Grype
+      run: curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh | sh -s -- -b /usr/local/bin
+
+    - name: Update Grype DB
+      run: grype db update
+
     - name: Scan the Docker image
       id: scan
       uses: anchore/scan-action@v3
       with:
         image: uvicorn/uvicorn-echo:latest
-        update-db: true
         fail-build: false
         output-format: table
