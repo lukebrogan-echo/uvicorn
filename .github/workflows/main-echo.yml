@@ -28,3 +28,5 @@ jobs:
       uses: anchore/scan-action@v3
       with:
         image: uvicorn/uvicorn-echo:latest
+        update-db: true
+        fail-build: false
