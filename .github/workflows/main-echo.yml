@@ -28,11 +28,3 @@ jobs:
       uses: anchore/scan-action@v3
       with:
         image: uvicorn/uvicorn-echo:latest
-
-    - name: Fail workflow on scan error
-      if: failure()
-      uses: actions/github-script@v7
-      with:
-        script: |
-          const core = require('@actions/core')
-          core.setFailed('Docker image scan failed — vulnerabilities detected or scan error occurred.')
