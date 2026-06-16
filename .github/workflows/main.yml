@@ -1,14 +1,10 @@
 name: Build Docker image and scan with Grype
-
 on:
   workflow_dispatch
     
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - name: Check out the repo
       uses: actions/checkout@v4
@@ -16,14 +12,16 @@ jobs:
     - name: Build image
       uses: docker/build-push-action@v5
       with:
-       context:
-       file: dockerfile
-       tags: uvicorn/uvicorn:latest
+        context: .
+        file: dockerfile
+        tags: uvicorn/uvicorn:latest
 
-    - name: Scan the Docker image 
-      uses: anchore/scan-action@v3
+    - name: Scan with Grype
+      run: |
+         curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh | sh -s -- -b /usr/local/bin
+         grype uvicorn/uvicorn:latest -o table
+
+    - name: Scan with Trivy
+      uses: aquasecurity/trivy-action@master
       with:
-        image: uvicorn/uvicorn:latest
-        update-db: true
-        fail-build: false
-        output-format: table
+        image-ref: uvicorn/uvicorn:latest
