@@ -2,5 +2,13 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended"
+  ],
+  "hostRules": [
+    {
+      "hostType": "docker",
+      "matchHost": "reg.echohq.com",
+      "username": "{{ secrets.ECHOHQ_DOCKER_USERNAME }}",
+      "password": "{{ secrets.ECHOHQ_DOCKER_PASSWORD }}"
+    }
   ]
 }
