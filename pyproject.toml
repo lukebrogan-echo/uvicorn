@@ -59,7 +59,7 @@ dev = [
     "pytest-codspeed>=4.1.1",
     "mypy==1.19.1",
     "types-click==7.1.8",
-    "types-pyyaml==6.0.12.20250915",
+    "types-pyyaml==6.0.12.20261103",
     "trustme==1.2.1",
     "cryptography>=44.0.3",
     "coverage==7.13.4",
