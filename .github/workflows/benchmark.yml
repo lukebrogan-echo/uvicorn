@@ -28,7 +28,7 @@ jobs:
         shell: bash
 
       - name: Run the benchmarks
-        uses: CodSpeedHQ/action@281164b0f014a4e7badd2c02cecad9b595b70537 # v4
+        uses: CodSpeedHQ/action@f22792bfac16f3e14eb9fbea76f4a48e9cc22b93 # v4
         with:
           mode: instrumentation
           run: uv run pytest tests/benchmarks/ --codspeed
